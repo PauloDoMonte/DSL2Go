@@ -1,0 +1,18 @@
+API "Gestão de Usuários"
+ROUTE GET  "/users"      
+ROUTE POST "/users"      
+ROUTE GET  "/users/{id}" 
+
+MODEL User {
+    ID    int
+    Name  string
+    Email string
+}
+
+DOCKER_DB_TYPE "PostgreSQL"
+DOCKER_DB_NAME "mydb"
+DOCKER_DB_HOST "localhost"
+
+DOCKER_CACHE_TYPE "Redis"
+DOCKER_CACHE_NAME "mycache"
+DOCKER_CACHE_HOST "localhost"
