@@ -1,7 +1,11 @@
 import os
 import sys
+
+# Adiciona o diretório 'src' ao sys.path para garantir que os módulos possam ser importados corretamente
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'src'))
+
 from src.parser import DSLParser
-from src.transpiler import Transpiler
+from src.transpiler_ import Transpiler
 from utils.helpers import read_file
 
 def main():
@@ -24,6 +28,11 @@ def main():
     parser = DSLParser()
     parser.parse(dsl_content)
     parsed_dsl = parser.commands
+
+    # Verificar se o parsed_dsl foi populado corretamente
+    if not parsed_dsl:
+        print("Erro: O DSL não foi parseado corretamente.")
+        sys.exit(1)
 
     # Gerar a estrutura do projeto Go
     output_dir = os.path.splitext(dsl_file_path)[0] + "_go_project"

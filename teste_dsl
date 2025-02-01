@@ -9,6 +9,31 @@ MODEL User {
     Email string
 }
 
+REPOSITORY UserRepository {
+    FindAll Users
+    FindByID Users
+    Save Users
+    Delete Users
+}
+
+CONTROLLER UserController {
+    GetAll Users
+    GetByID Users
+    Create Users
+    Delete Users
+}
+
+SERVICE UserService {
+    GetAll Users
+    GetByID Users
+    Create Users
+    Delete Users
+}
+
+MIDDLEWARE AuthMiddleware {
+    Handle(next http.Handler) http.Handler
+}
+
 DOCKER_DB_TYPE "PostgreSQL"
 DOCKER_DB_NAME "mydb"
 DOCKER_DB_HOST "localhost"
