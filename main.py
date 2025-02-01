@@ -4,7 +4,7 @@ import sys
 # Adiciona o diretório 'src' ao sys.path para garantir que os módulos possam ser importados corretamente
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'src'))
 
-from src.parser import DSLParser
+from src.parser_ import DSLParser
 from src.transpiler_ import Transpiler
 from utils.helpers import read_file
 
